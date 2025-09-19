@@ -1,0 +1,145 @@
+/* Page Container */
+.page-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.page-container h1 {
+  margin: 0 0 2rem 0;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Tables Section */
+.tables-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.table-section {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.table-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.table-section h2 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #374151;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e5e7eb;
+  position: relative;
+}
+
+.table-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border-radius: 1px;
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .page-container {
+    padding: 1.5rem;
+  }
+
+  .tables-section {
+    gap: 2rem;
+  }
+
+  .table-section {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 1rem;
+  }
+
+  .page-container h1 {
+    font-size: 1.875rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tables-section {
+    gap: 1.5rem;
+  }
+
+  .table-section {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .table-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container {
+    padding: 0.75rem;
+  }
+
+  .page-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .table-section {
+    padding: 0.75rem;
+    border-radius: 8px;
+  }
+}

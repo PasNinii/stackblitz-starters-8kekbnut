@@ -1,0 +1,46 @@
+<form [formGroup]="filterForm" class="filter-form">
+  @for (filter of state.filters(); track filter.config().id) {
+  <div class="filter-group">
+    <h3 class="filter-label">{{ filter.config().label }}</h3>
+    @switch (filter.config().type) { @case ("checkbox") {
+    <div class="checkbox-wrapper">
+      <input
+        type="checkbox"
+        class="custom-checkbox"
+        [formControlName]="'filter_' + filter.config().id"
+        [id]="'filter_' + filter.config().id"
+      />
+      <label class="checkbox-label" [for]="'filter_' + filter.config().id">
+        <span class="checkmark"></span>
+        <span class="label-text">Enable {{ filter.config().label }}</span>
+      </label>
+    </div>
+    } @case ("multi-select") {
+    <div class="select-wrapper">
+      <select
+        multiple
+        class="custom-select"
+        [formControlName]="'filter_' + filter.config().id"
+        [id]="'filter_' + filter.config().id"
+      >
+        @if (filter.config().type === 'multi-select') { @for (option of
+        getOptionsForFilter(filter); track option.id) {
+        <option [value]="option.id">{{ option.label }}</option>
+        } }
+      </select>
+      <div class="select-helper">Hold Ctrl/Cmd to select multiple items</div>
+    </div>
+    } }
+  </div>
+  }
+  <div class="form-actions">
+    <button
+      type="button"
+      class="reset-button"
+      (click)="resetFilters()"
+      [disabled]="!hasActiveFilters()"
+    >
+      Reset Filters
+    </button>
+  </div>
+</form>
