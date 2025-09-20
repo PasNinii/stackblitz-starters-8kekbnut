@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { TableComponent, TableData } from '../table/table.component';
+import { Table, TableData } from '../table/table';
 
 @Component({
   selector: 'app-page',
   standalone: true,
-  imports: [TableComponent],
-  templateUrl: './page.component.html',
-  styleUrls: ['./page.component.css']
+  imports: [Table],
+  templateUrl: './page.html',
+  styleUrls: ['./page.css']
 })
-export class PageComponent {
+export class Page {
   productsData: TableData[] = [
     {
       id: 1,

@@ -7,10 +7,10 @@ import { Params, Router } from "@angular/router";
 @Component({
   selector: "filter-list",
   imports: [ReactiveFormsModule],
-  templateUrl: './filter-list.component.html',
-  styleUrls: ['./filter-list.component.css']
+  templateUrl: './filter-list.html',
+  styleUrls: ['./filter-list.css']
 })
-export class FilterListComponent implements OnInit {
+export class FilterList implements OnInit {
   protected readonly state = inject(State);
   private readonly fb = inject(FormBuilder);
   private readonly destroyRef = inject(DestroyRef)
@@ -93,7 +93,9 @@ export class FilterListComponent implements OnInit {
           queryParams[filter.urlFilterPrefix()] = filter.serialize()
         });
 
-        this.router.navigate([], { queryParams, queryParamsHandling: 'merge' });
+        // this.router.navigate([], { queryParams, queryParamsHandling: 'merge' });
+        const url = this.router.createUrlTree([], { queryParams, queryParamsHandling: 'merge' }).toString();
+        this.router.navigateByUrl(url);
       });
   }
 

@@ -12,10 +12,10 @@ export interface TableData {
 @Component({
   selector: 'app-table',
   standalone: true,
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  templateUrl: './table.html',
+  styleUrls: ['./table.css']
 })
-export class TableComponent implements OnInit {
+export class Table implements OnInit {
   public readonly data = input.required<TableData[]>();
   private readonly route = inject(ActivatedRoute);
 
